@@ -123,7 +123,8 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
         'Way\Generators\GeneratorsServiceProvider',
         'Former\FormerServiceProvider',
-        'Barryvdh\Debugbar\ServiceProvider'
+        'Barryvdh\Debugbar\ServiceProvider',
+        'InvoiceSystemRepository\StorageServiceProvider'
 
 	),
 

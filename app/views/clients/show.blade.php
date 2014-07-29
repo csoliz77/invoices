@@ -1,0 +1,1 @@
+/var/www/site1/public_html/InvoiceSystem/app/views/clients/show.blade.php

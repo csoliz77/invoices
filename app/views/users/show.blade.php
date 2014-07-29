@@ -1,1 +1,2 @@
-/var/www/site1/public_html/InvoiceSystem/app/views/users/show.blade.php
+<p>This is the id:{{ $user->id; }}</p>
+<p>This is the username: {{ $user->username }}</p>

@@ -20,3 +20,4 @@ Route::resource('invoice', 'InvoicesController');
 Route::resource('items','ItemsController');
 Route::resource('user','UsersController');
 Route::resource('address', 'AddressesController');
+Route::resource('clients', 'ClientsController');

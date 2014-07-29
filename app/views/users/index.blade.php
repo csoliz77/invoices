@@ -1,1 +1,3 @@
-/var/www/site1/public_html/InvoiceSystem/app/views/users/index.blade.php
+@foreach ($users as $user)
+<p>This is user {{ $user->username }}</p>
+@endforeach

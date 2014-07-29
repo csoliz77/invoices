@@ -23,6 +23,8 @@
 That way the items will be sent to the database without the use of the save button that affects only the invoice table" }}
 
 {{"We have to write a function to tabulate the total for the invoice total. We could actually get that from the items table"}}
+
+<h2>Invoice System</h2>
 <table class="table" border="1">
     <tr>
     <th>

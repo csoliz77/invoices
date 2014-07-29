@@ -1,6 +1,16 @@
 <?php
+use InvoiceSystemRepository\UserRepository as User;
 
 class UsersController extends \BaseController {
+
+    protected $user;
+
+    public function __construct(User $user){
+
+
+
+        $this->user = $user;
+    }
 
 	/**
 	 * Display a listing of users
@@ -9,7 +19,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		$users = User::all();
+
+        $users = $this->user->all();
 
 		return View::make('users.index', compact('users'));
 	}
@@ -31,6 +42,7 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
+        //Need to add a constructor to pass a validator dependency
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
 		if ($validator->fails())
@@ -38,7 +50,9 @@ class UsersController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		User::create($data);
+
+
+        $this->user->create($data);
 
 		return Redirect::route('users.index');
 	}
@@ -51,7 +65,7 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$user = User::findOrFail($id);
+		$user = $this->user->findOrFail($id);
 
 		return View::make('users.show', compact('user'));
 	}
@@ -64,7 +78,7 @@ class UsersController extends \BaseController {
 	 */
 	public function edit($id)
 	{
-		$user = User::find($id);
+		$user = $this->user->find($id);
 
 		return View::make('users.edit', compact('user'));
 	}
@@ -77,7 +91,8 @@ class UsersController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		$user = User::findOrFail($id);
+		$this->user->findOrFail($id);
+
 
 		$validator = Validator::make($data = Input::all(), User::$rules);
 
@@ -86,7 +101,7 @@ class UsersController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$user->update($data);
+		$this->user->update($data);
 
 		return Redirect::route('users.index');
 	}
@@ -99,9 +114,10 @@ class UsersController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		User::destroy($id);
+		$this->user->destroy($id);
 
 		return Redirect::route('users.index');
 	}
+
 
 }
