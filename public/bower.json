@@ -1,0 +1,10 @@
+{
+  "name": "html5-boilerplate",
+  "version": "4.3.0",
+  "description": "HTML5 Boilerplate",
+  "license": "MIT",
+
+  "install": {
+  		 "path" "assets/",
+  }
+}
